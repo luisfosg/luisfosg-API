@@ -3,7 +3,7 @@ const { Router } = require("express");
 const router = Router();
 
 router.get("/", (req, res) => {
-    res.send({"status": "ok"});
+    res.status(200).json({"status": "Welcome"})
 });
 
 module.exports = router;
