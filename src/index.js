@@ -1,4 +1,4 @@
-const express = require('express');
+import express from "express";
 const morgan = require("morgan");
 const cors = require("cors");
 
@@ -14,5 +14,5 @@ app.use(express.urlencoded({extended: false}));
 app.use("/", require("./router/index-router"));
 
 app.listen(app.get("port"), () => {
-    console.log(`Servidor Listo en el puerto ${app.get("port")}`);
+    console.log(`\n Servidor Listo en el puerto http://localhost:${app.get("port")}/  \n`);
 });
