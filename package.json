@@ -1,7 +1,7 @@
 {
   "name": "api-luisfosg",
   "version": "1.0.0",
-  "description": "",
+  "description": "Data API from LuisFOsG",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/LuisFOsG/LuisFOsG-API.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "LuisFOsG",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LuisFOsG/LuisFOsG-API/issues"
