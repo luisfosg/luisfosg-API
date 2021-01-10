@@ -13,6 +13,6 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.use("/", require("./routes/index-router").default);
+app.use(require("./routes/index-router").default);
 
 export default app;

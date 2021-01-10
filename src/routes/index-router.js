@@ -5,7 +5,7 @@ import proyectsRouter from "./api/proyects-router";
 
 const router = Router();
 
-router.use("/api", proyectsRouter);
+router.use("/api/proyect", proyectsRouter);
 router.use("/", homeRouter);
 
 export default router;

@@ -1,9 +1,12 @@
 import { Router } from "express";
-
 const router = Router();
 
-router.get("/proyects", (req, res) => {
-    res.status(200).json({"status": "OK"})
-});
+import * as proyectCtrl from '../../controllers/proyects-controller';
+
+router.get("/", proyectCtrl.obtenerProyectos);
+router.post("/", proyectCtrl.agregarProyecto);
+router.get("/:id", proyectCtrl.obtenerProyecto);
+router.put("/:id", proyectCtrl.editarProyecto);
+router.delete("/:id", proyectCtrl.eliminarProyecto);
 
 export default router;
