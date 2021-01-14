@@ -1,0 +1,14 @@
+### obteniendo proyectos
+GET http://localhost:2001/api/proyect
+
+### creando proyecto
+POST http://localhost:2001/api/proyect
+Content-Type: application/json
+
+{
+    "imgUrl": "img2.jpg",
+    "name": "Nuevo Proyecto Prueba",
+    "description": "Esta es una Descripcion 2",
+    "github": "LuisFOsG/prueba2",
+    "url": "url del proyecto xd"
+}
