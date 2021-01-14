@@ -5,7 +5,11 @@ const userSchema = new Schema({
     name: { type: String, unique: true, required: true },
     description: String,
     github: String,
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    roles: [{
+        ref: "Role",
+        type: Schema.Types.ObjectId
+    }]
 }, {
     timestamps: true,
     versionKey: false
