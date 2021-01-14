@@ -3,7 +3,7 @@ import app from '../../app';
 
 const router = Router();
 
-router.get("/", (req, res) => {
+router.get("/", (_req, res) => {
     res.status(200).json(
         {
             name: app.get("pkg").name,
@@ -13,5 +13,8 @@ router.get("/", (req, res) => {
         }
     );
 });
+
+router.post("/signin");
+router.post("/signout");
 
 module.exports = router;
