@@ -1,3 +1,5 @@
+import User from '../models/user';
+
 export const signIn = async (req, res) => {
     res.status(200).json({ status: "OK" });
 }
