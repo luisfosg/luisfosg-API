@@ -32,5 +32,4 @@ GET http://localhost:2001/api/proyect/5fffb17978aa5a3f983537eb
 DELETE http://localhost:2001/api/proyect/6019f08d2a4a213d6c8e5738
 
 ### Obteniendo N proyectos
-
 GET http://localhost:2001/api/proyect/get/5

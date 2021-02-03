@@ -17,6 +17,5 @@ router.get("/", (_req, res) => {
 import * as authCtrol from '../../controllers/auth-controller';
 
 router.post("/signin", authCtrol.signIn);
-router.post("/signout", authCtrol.signOut);
 
 module.exports = router;
