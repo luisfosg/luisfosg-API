@@ -1,2 +1,8 @@
 ### Ingresando a la Plataforma
 POST http://localhost:2001/signin
+Content-Type: application/json
+
+{
+    "name": "LuisFOsG",
+    "password": "**************"
+}
