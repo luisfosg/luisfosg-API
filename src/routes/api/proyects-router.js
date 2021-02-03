@@ -9,4 +9,6 @@ router.get("/:id", proyectCtrl.obtenerProyecto);
 router.put("/:id", proyectCtrl.editarProyecto);
 router.delete("/:id", proyectCtrl.eliminarProyecto);
 
+router.get("/get/:num", proyectCtrl.contandoProyectos);
+
 export default router;
