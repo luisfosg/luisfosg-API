@@ -13,9 +13,10 @@ export const signUp = async (req, res) => {
         name,
         description,
         github,
-        password: User.encriptarContrasenia(password),
+        password: await User.encriptarContrasenia(password),
         roles
     });
+
     console.log(newUser);
 
     res.status(200).json({ status: "OK" });
