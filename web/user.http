@@ -1,5 +1,5 @@
 ### Ingresando a la Plataforma
-POST http://localhost:2001/signin
+POST http://localhost:2001/api/signin
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### Registrandose a la Plataforma
-POST http://localhost:2001/signup
+POST http://localhost:2001/api/signup
 Content-Type: application/json
 
 {

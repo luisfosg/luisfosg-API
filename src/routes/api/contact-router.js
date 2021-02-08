@@ -1,9 +1,6 @@
 import { Router } from "express";
-
-import homeRouter from "./page/home-router";
-
 const router = Router();
 
-router.use("/", homeRouter);
+router.post("/contact");
 
 export default router;
