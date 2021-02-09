@@ -1,6 +1,9 @@
 import { Router } from "express";
 const router = Router();
 
-router.post("/contact");
+import * as contactCtrl from '../../controllers/contact-controller';
+
+
+router.post("/", contactCtrl.resEmail);
 
 export default router;
