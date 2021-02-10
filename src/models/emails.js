@@ -9,4 +9,4 @@ const emailSchema = new Schema({
     versionKey: false
 });
 
-export default model("Proyect", emailSchema);
+export default model("Email", emailSchema);
