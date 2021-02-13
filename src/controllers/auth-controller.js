@@ -8,18 +8,24 @@ export const signIn = async (req, res) => {
 export const userRegister = async (req, res) => {
     const { imgUrl, name, description, github, password, roles } = req.body;
 
-    const newUser = new User({
-        imgUrl,
-        name,
-        description,
-        github,
-        password: await User.encriptarContrasenia(password),
-        roles
-    });
+    const findUser = await User.findOne({ name });
 
-    const userSave = await newUser.save();
+    if(findUser === null){
+        const newUser = new User({
+            imgUrl,
+            name,
+            description,
+            github,
+            password: await User.encriptarContrasenia(password),
+            roles
+        });
 
-    res.status(200).json(userSave);
+        const userSave = await newUser.save();
+
+        res.status(200).json(userSave);
+    } else {
+        res.status(404).json({ "error": "User Register"});
+    }
 }
 
 export const userEdit = async (req, res) => {

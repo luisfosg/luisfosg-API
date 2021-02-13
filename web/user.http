@@ -13,13 +13,13 @@ Content-Type: application/json
 
 {
     "imgUrl": "String",
-    "name": "Luis",
-    "description": "Estudiando",
-    "password": "Uff Men",
+    "name": "LuisFO",
+    "description": "Estudiando 2.0",
+    "password": "Contraseña xD",
     "github": "LuisFOsG"
 }
 
-### Registrandose a la Plataforma
+### Editando Usuario xD
 PUT http://localhost:2001/api/user/6026fc960a606406cc313b01
 Content-Type: application/json
 
@@ -31,3 +31,19 @@ Content-Type: application/json
     "github": "LuisFOsG",
     "roles": []
 }
+
+### Editando Usuario xD
+PUT http://localhost:2001/api/user/6026fc960a606406cc313b01
+Content-Type: application/json
+
+{
+    "imgUrl": "String",
+    "name": "LuisF",
+    "description": "Estudiando",
+    "password": "Uff Men",
+    "github": "LuisFOsG",
+    "roles": []
+}
+
+### Eliminando Usuario xD
+DELETE http://localhost:2001/api/user/60285b1ecf88f81174c951b5
