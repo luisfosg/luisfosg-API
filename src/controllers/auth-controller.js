@@ -29,14 +29,38 @@ export const userRegister = async (req, res) => {
 }
 
 export const userEdit = async (req, res) => {
-    const { id } = req.params.id;
-    const { imgUrl, name, description, github, password, roles } = req.body;
-    const updateUser = await User.findOneAndUpdate(id, { name, imgUrl, description, github, password, roles }, { new: true });
-    res.status(200).json(updateUser);
+    const id = req.params.id;
+    const { imgUrl, name, description, github, roles } = req.body;
+    const password = await User.encriptarContrasenia(req.body.password);
+
+    const findUser = await User.findOne({ name });
+
+    if(findUser === null){
+        const updateUser = await sendEdit( id, { imgUrl, name, description, github, password, roles});
+        res.status(200).json(updateUser);
+
+    } else {
+        if(name === ""){
+            const updateUser = await sendEdit( id, { imgUrl, description, github, password, roles});
+            res.status(200).json(updateUser);
+        } else {
+            res.status(404).json({ "error": "User Register"});
+        }
+    }
+}
+
+async function sendEdit(id, req){
+    const updateUser = await User.findOneAndUpdate(id, { ...req }, {
+        new: true
+    });
+
+    return updateUser;
 }
 
 export const userDelete = async (req, res) => {
-    const { id } = req.params.id;
+    const id = req.params.id;
+
     const deleteUser = await User.findByIdAndDelete(id);
     res.status(200).json(deleteUser);
+
 }
