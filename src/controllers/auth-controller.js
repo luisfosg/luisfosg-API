@@ -36,8 +36,13 @@ export const userEdit = async (req, res) => {
     const findUser = await User.findOne({ name });
 
     if(findUser === null){
-        const updateUser = await sendEdit( id, { imgUrl, name, description, github, password, roles});
-        res.status(200).json(updateUser);
+        if(name === "") {
+            const updateUser = await sendEdit( id, { imgUrl, description, github, password, roles});
+            res.status(200).json(updateUser);
+        } else {
+            const updateUser = await sendEdit( id, { imgUrl, name, description, github, password, roles});
+            res.status(200).json(updateUser);
+        }
 
     } else {
         if(name === ""){
@@ -50,10 +55,7 @@ export const userEdit = async (req, res) => {
 }
 
 async function sendEdit(id, req){
-    const updateUser = await User.findOneAndUpdate(id, { ...req }, {
-        new: true
-    });
-
+    const updateUser = await User.findByIdAndUpdate(id, { ...req });
     return updateUser;
 }
 
@@ -62,5 +64,4 @@ export const userDelete = async (req, res) => {
 
     const deleteUser = await User.findByIdAndDelete(id);
     res.status(200).json(deleteUser);
-
 }

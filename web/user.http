@@ -13,24 +13,24 @@ Content-Type: application/json
 
 {
     "imgUrl": "String",
-    "name": "Luis",
+    "name": "LuisF",
     "description": "Estudiando 2.0",
     "password": "Contraseña xD",
     "github": "LuisFOsG"
 }
 
 ### Editando Usuario xD
-PUT http://localhost:2001/api/user/60286811330fa03cd8d9e95e
+PUT http://localhost:2001/api/user/6029bddda23fc83770c50f21
 Content-Type: application/json
 
 {
     "imgUrl": "String",
-    "name": "Luis",
-    "description": "Estudiando",
-    "password": "Uff Men",
+    "name": "",
+    "description": "Estudiando xd",
+    "password": "prueba",
     "github": "LuisFOsG",
     "roles": []
 }
 
 ### Eliminando Usuario xD
-DELETE http://localhost:2001/api/user/60286811330fa03cd8d9e95e
+DELETE http://localhost:2001/api/user/60286a624e42862488c70693
