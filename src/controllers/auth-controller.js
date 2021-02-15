@@ -32,30 +32,49 @@ export const userEdit = async (req, res) => {
     const id = req.params.id;
     const { imgUrl, name, description, github, roles } = req.body;
     const password = await User.encriptarContrasenia(req.body.password);
+    var error = false;
 
-    const findUser = await User.findOne({ name });
-
-    if(findUser === null){
-        if(name === "") {
-            const updateUser = await sendEdit( id, { imgUrl, description, github, password, roles});
-            res.status(200).json(updateUser);
-        } else {
-            const updateUser = await sendEdit( id, { imgUrl, name, description, github, password, roles});
-            res.status(200).json(updateUser);
+    const findUserById = await User.findById(id)
+        .catch(() => {
+            error = true;
+            res.status(404).json({ "error": "User not Register"});
         }
+    );
 
+    if(!findUserById || error){
+        if(!error){
+            res.status(404).json({ "error": "User not Register"});
+        }
     } else {
-        if(name === ""){
-            const updateUser = await sendEdit( id, { imgUrl, description, github, password, roles});
-            res.status(200).json(updateUser);
+        const findUser = await User.findOne({ name });
+
+        if(findUser === null){
+            if(name === "") {
+                const updateUser = await sendEdit( id, { imgUrl, description, github, password, roles});
+                res.status(200).json(updateUser);
+            } else {
+                const updateUser = await sendEdit( id, { imgUrl, name, description, github, password, roles});
+                res.status(200).json(updateUser);
+            }
+
         } else {
-            res.status(404).json({ "error": "User Register"});
+            if(name === ""){
+                const updateUser = await sendEdit( id, { imgUrl, description, github, password, roles});
+                res.status(200).json(updateUser);
+            } else {
+                res.status(404).json({ "error": "User Register"});
+            }
         }
     }
 }
 
 async function sendEdit(id, req){
-    const updateUser = await User.findByIdAndUpdate(id, { ...req });
+    const updateUser = await User.findByIdAndUpdate(id, { ...req },
+        {
+            new: true
+        }
+    );
+
     return updateUser;
 }
 
@@ -63,5 +82,9 @@ export const userDelete = async (req, res) => {
     const id = req.params.id;
 
     const deleteUser = await User.findByIdAndDelete(id);
-    res.status(200).json(deleteUser);
+    if(deleteUser){
+        res.status(200).json(deleteUser);
+    } else {
+        res.status(404).json({ "error": "User not Register"});
+    }
 }

@@ -20,17 +20,17 @@ Content-Type: application/json
 }
 
 ### Editando Usuario xD
-PUT http://localhost:2001/api/user/6029bddda23fc83770c50f21
+PUT http://localhost:2001/api/user/602ad0ba9d4c793d207e992f
 Content-Type: application/json
 
 {
-    "imgUrl": "String",
+    "imgUrl": "img xd",
     "name": "",
-    "description": "Estudiando xd",
-    "password": "prueba",
+    "description": "Cambio",
+    "password": "cambio",
     "github": "LuisFOsG",
     "roles": []
 }
 
 ### Eliminando Usuario xD
-DELETE http://localhost:2001/api/user/60286a624e42862488c70693
+DELETE http://localhost:2001/api/user/602ad0ba9d4c793d207e992f
