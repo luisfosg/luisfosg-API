@@ -3,7 +3,7 @@ import Mailer from 'nodemailer';
 const conexionEmail = Mailer.createTransport({
     service: "gmail",
     auth:{
-        user: "@gmail.com",
+        user: "luisfosg@gmail.com",
         pass: ""
     }
 });

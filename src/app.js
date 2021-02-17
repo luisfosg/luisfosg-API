@@ -4,6 +4,7 @@ import cors from "cors";
 import path from 'path';
 
 import pkg from '../package.json';
+import './config';
 
 const app = express();
 
