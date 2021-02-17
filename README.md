@@ -1,3 +1,10 @@
 # API LuisFOsG
 
-- posibilidad de enviar imagenes al servidor, asi mismo poder ver imagenes en el servidor.
+TODO:
+
+- posibilidad de enviar imagenes al servidor.
+- Emails controller
+- Send Emails
+- Sign In
+- Variables de Entorno
+- JWT
