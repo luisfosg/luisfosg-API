@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 
-import * as proyectCtrl from '../../controllers/proyects-controller';
+import * as proyectCtrl from '../../../controllers/proyects-controller';
 
 router.get("/", proyectCtrl.obtenerProyectos);
 router.post("/", proyectCtrl.agregarProyecto);

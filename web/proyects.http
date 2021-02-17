@@ -1,5 +1,5 @@
 ### Creando proyecto
-POST http://localhost:2001/api/proyect
+POST http://localhost:2001/api/v1/proyect
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### Actualizando proyecto
-PUT http://localhost:2001/api/proyect/6019ec59388c3435c416bbaf
+PUT http://localhost:2001/api/v1/proyect/602d7bb79767281124d1e616
 Content-Type: application/json
 
 {
@@ -23,13 +23,13 @@ Content-Type: application/json
 }
 
 ### Obteniendo proyectos
-GET http://localhost:2001/api/proyect
+GET http://localhost:2001/api/v1/proyect
 
 ### Obteniendo un solo Proyecto
-GET http://localhost:2001/api/proyect/6019ec59388c3435c416bbaf
+GET http://localhost:2001/api/v1/proyect/6019ec59388c3435c416bbaf
 
 ### Eliminando un Proyecto
-DELETE http://localhost:2001/api/proyect/6019f0852a4a213d6c8e572d
+DELETE http://localhost:2001/api/v1/proyect/6019ec59388c3435c416bbaf
 
 ### Obteniendo N proyectos
-GET http://localhost:2001/api/proyect/get/2
+GET http://localhost:2001/api/v1/proyect/get/3

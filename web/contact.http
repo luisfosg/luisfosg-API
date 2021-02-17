@@ -1,5 +1,5 @@
 ### Recibiendo correo xD
-POST http://localhost:2001/api/contact
+POST http://localhost:2001/api/v1/contact
 Content-Type: application/json
 
 {

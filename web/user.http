@@ -1,5 +1,5 @@
 ### Ingresando a la Plataforma
-POST http://localhost:2001/api/signin
+POST http://localhost:2001/api/v1/signin
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### Registrandose a la Plataforma
-POST http://localhost:2001/api/user
+POST http://localhost:2001/api/v1/user
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ### Editando Usuario xD
-PUT http://localhost:2001/api/user/602ad0ba9d4c793d207e992f
+PUT http://localhost:2001/api/v1/user/602ad0ba9d4c793d207e992f
 Content-Type: application/json
 
 {
@@ -33,4 +33,4 @@ Content-Type: application/json
 }
 
 ### Eliminando Usuario xD
-DELETE http://localhost:2001/api/user/602ad0ba9d4c793d207e992f
+DELETE http://localhost:2001/api/v1/user/602ad0ba9d4c793d207e992f
