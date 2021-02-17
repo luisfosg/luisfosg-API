@@ -1,4 +1,5 @@
 import User from '../models/user';
+import jwt from 'jsonwebtoken';
 
 export const signIn = async (req, res) => {
     const { name, password } = req.body;
@@ -22,7 +23,11 @@ export const userRegister = async (req, res) => {
 
         const userSave = await newUser.save();
 
-        res.status(200).json(userSave);
+        const token = jwt.sign({id: userSave._id}, process.env.SECRET, {
+            expiresIn: 86400
+        });
+
+        res.status(200).json({ token });
     } else {
         res.status(404).json({ "error": "User Register"});
     }
