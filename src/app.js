@@ -3,7 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import path from 'path';
 
-import { createRoles } from './lib/initialSetup';
+import { createRoles } from './libs/initialSetup';
 
 import pkg from '../package.json';
 import routes from './routes/index-router';

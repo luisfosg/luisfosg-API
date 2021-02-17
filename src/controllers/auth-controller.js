@@ -1,5 +1,7 @@
-import User from '../models/user';
 import jwt from 'jsonwebtoken';
+
+import User from '../models/user';
+import Role from '../models/roles';
 
 export const signIn = async (req, res) => {
     const { name, password } = req.body;
@@ -17,9 +19,18 @@ export const userRegister = async (req, res) => {
             name,
             description,
             github,
-            password: await User.encriptarContrasenia(password),
-            roles
+            password: await User.encriptarContrasenia(password)
         });
+
+        if(roles) {
+            const foundRoles = await Role.find({ name: {$in: roles} })
+
+            newUser.roles = foundRoles.map(role => role._id)
+        } else {
+            const role = await Role.findOne({ name: "user" });
+
+            newUser.roles = [ role._id ];
+        }
 
         const userSave = await newUser.save();
 
