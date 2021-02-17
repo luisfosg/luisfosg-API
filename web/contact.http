@@ -3,7 +3,7 @@ POST http://localhost:2001/api/v1/contact
 Content-Type: application/json
 
 {
-    "name": "esperando...",
-    "email": "xd@gmail.com",
-    "message": "ting and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing LoremLorem Ipsum is simply dummy text of the prin Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    "name": "Esperando",
+    "email": "olv@gmail.com",
+    "message": "Lorem"
 }

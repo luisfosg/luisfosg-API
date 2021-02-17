@@ -7,7 +7,7 @@ export const resEmail = async (req, res) => {
 
     const emailSave = await newEmail.save();
 
-    sendEmail(email, message, name, "Email no Enviado");
+    sendEmail(email, message, name, emailSave._id);
 
     res.status(201).json(emailSave);
 }

@@ -1,5 +1,7 @@
 import Mailer from 'nodemailer';
 
+import Email from '../models/emails';
+
 const conexionEmail = Mailer.createTransport({
     service: "gmail",
     auth:{
@@ -8,7 +10,7 @@ const conexionEmail = Mailer.createTransport({
     }
 });
 
-export const sendEmail = async (from, msg, name, error) => {
+export const sendEmail = async (from, msg, name, id) => {
     let mailOptions = {
         from: process.env.EMAILFROM,
         to: process.env.EMAILTO,
@@ -20,12 +22,14 @@ export const sendEmail = async (from, msg, name, error) => {
         `,
     };
 
-    conexionEmail.sendMail(mailOptions, function (err, info) {
+    conexionEmail.sendMail(mailOptions, async function (err, info) {
         if (err) {
-            return error;
+            await Email.findByIdAndUpdate(id, { response: "No enviado" });
+            console.log(err);
         }
         else {
-            return info.response;
+            await Email.findByIdAndUpdate(id, { response: "Enviado" });
+            console.log(info.response);
         }
     });
 }
