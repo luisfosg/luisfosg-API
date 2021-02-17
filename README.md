@@ -1,10 +1,13 @@
 # API LuisFOsG
 
-TODO:
+## TODO:
 
-- posibilidad de enviar imagenes al servidor.
-- Emails controller
-- Send Emails
 - Sign In
-- Variables de Entorno
 - JWT
+- posibilidad de enviar imagenes al servidor.
+
+## Variables de Entorno
+
+- EMAILFROM
+- PASSWORD_EMAIL
+- EMAILTO

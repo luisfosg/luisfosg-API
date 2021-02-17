@@ -3,20 +3,20 @@ import Mailer from 'nodemailer';
 const conexionEmail = Mailer.createTransport({
     service: "gmail",
     auth:{
-        user: "luisfosg@gmail.com",
-        pass: ""
+        user: process.env.EMAILFROM,
+        pass: process.env.PASSWORD_EMAIL,
     }
 });
 
 export const sendEmail = async (from, msg, name, error) => {
     let mailOptions = {
-        from: "@gmail.com",
-        to: "@gmail.com",
-        subject: "Asunto",
-        text: msg,
+        from: process.env.EMAILFROM,
+        to: process.env.EMAILTO,
+        subject: name,
         html: `
-            <h1>${ name }</h1>
-            <h3>${ from }</h3>
+            <h3>from: ${ from }</h3>
+            <small>Asunto: </small>
+            <p>${ msg }</p>
         `,
     };
 
