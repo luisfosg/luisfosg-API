@@ -6,7 +6,7 @@ const conexionEmail = Mailer.createTransport({
     service: "gmail",
     auth:{
         user: process.env.EMAILFROM,
-        pass: process.env.PASSWORD_EMAIL,
+        pass: process.env.PASSWORD_EMAIL
     }
 });
 

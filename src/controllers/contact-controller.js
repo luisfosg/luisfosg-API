@@ -21,7 +21,3 @@ export const getEmails = async (req, res) => {
 export const deleteEmail = async (req, res) => {
 
 }
-
-export const editEmail = async (req, res) => {
-
-}

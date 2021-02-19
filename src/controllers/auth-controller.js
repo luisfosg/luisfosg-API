@@ -23,9 +23,9 @@ export const userRegister = async (req, res) => {
         });
 
         if(roles) {
-            const foundRoles = await Role.find({ name: {$in: roles} })
+            const foundRoles = await Role.find({ name: {$in: roles} });
 
-            newUser.roles = foundRoles.map(role => role._id)
+            newUser.roles = foundRoles.map(role => role._id);
         } else {
             const role = await Role.findOne({ name: "user" });
 
@@ -46,9 +46,22 @@ export const userRegister = async (req, res) => {
 
 export const userEdit = async (req, res) => {
     const id = req.params.id;
-    const { imgUrl, name, description, github, roles } = req.body;
+    const { imgUrl, name, description, github } = req.body;
+    var { roles } = req.body;
+
     const password = await User.encriptarContrasenia(req.body.password);
+
     var error = false;
+
+    if(roles){
+        const foundRoles = await Role.find({ name: {$in: roles} });
+
+        roles = foundRoles.map(role => role._id);
+    } else {
+        const role = await Role.findOne({ name: "user" });
+
+        roles = [ role._id ];
+    }
 
     const findUserById = await User.findById(id)
         .catch(() => {
