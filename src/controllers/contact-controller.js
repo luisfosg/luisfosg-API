@@ -13,9 +13,11 @@ export const resEmail = async (req, res) => {
 }
 
 export const getEmail = async (req, res) => {
+
 }
 
 export const getEmails = async (req, res) => {
+
 }
 
 export const deleteEmail = async (req, res) => {

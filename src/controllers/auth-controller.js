@@ -72,29 +72,35 @@ export const userEdit = async (req, res) => {
             res.status(404).json({ "error": "User not Register"});
         }
     } else {
-        dbEdit(res, id, name, { imgUrl, description, github, password, roles });
+        const info = await dbEdit(id, name, { imgUrl, description, github, password, roles });
+
+        if(info.error) {
+            res.status(404).json(info);
+        } else {
+            res.status(200).json(info);
+        }
     }
 }
 
-async function dbEdit(res, id, name, req){
+async function dbEdit(id, name, req){
 
     const findUser = await User.findOne({ name });
 
     if(!findUser){
         if(name === "") {
             const updateUser = await sendEdit( id,  req);
-            res.status(200).json(updateUser);
+            return updateUser;
         } else {
             const updateUser = await sendEdit( id, { ...req, name });
-            res.status(200).json(updateUser);
+            return updateUser;
         }
 
     } else {
         if(name === ""){
             const updateUser = await sendEdit( id, req);
-            res.status(200).json(updateUser);
+            return updateUser;
         } else {
-            res.status(404).json({ "error": "User Register"});
+            return { "error": "User Register"};
         }
     }
 }

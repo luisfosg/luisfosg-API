@@ -12,8 +12,13 @@ export const contandoProyectos = async (req, res) => {
     try {
         count = parseInt(count);
 
-        const proyects = await Proyect.find().limit(count);
-        res.status(200).json(proyects);
+        if(count === 0) {
+            res.status(200).json([]);
+        } else {
+            const proyects = await Proyect.find().limit(count);
+            res.status(200).json(proyects);
+        }
+
     } catch (error) {
         res.status(505).json({"error": "No es un numero permitido"});
     }

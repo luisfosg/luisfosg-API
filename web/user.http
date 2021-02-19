@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Editando Usuario xD
-PUT http://localhost:2001/api/v1/user/60302e040b8da73cd417191e
+PUT http://localhost:2001/api/v1/user/603040b84657df3da478fc49
 Content-Type: application/json
 
 {
@@ -34,4 +34,4 @@ Content-Type: application/json
 }
 
 ### Eliminando Usuario xD
-DELETE http://localhost:2001/api/v1/user/60303e1ccf94ba3de0d5540b
+DELETE http://localhost:2001/api/v1/user/603040b84657df3da478fc49
