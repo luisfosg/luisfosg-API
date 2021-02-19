@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Editando Usuario xD
-PUT http://localhost:2001/api/v1/user/602d90ae84694538e8d029b1
+PUT http://localhost:2001/api/v1/user/60302e040b8da73cd417191e
 Content-Type: application/json
 
 {
@@ -30,8 +30,8 @@ Content-Type: application/json
     "description": "Cambio",
     "password": "cambio",
     "github": "LuisFOsG",
-    "roles": [ "admin" , "user" ]
+    "roles": [ "admin" ]
 }
 
 ### Eliminando Usuario xD
-DELETE http://localhost:2001/api/v1/user/602d904484694538e8d029b0
+DELETE http://localhost:2001/api/v1/user/60302e040b8da73cd417191e

@@ -1,7 +1,6 @@
-import jwt from 'jsonwebtoken';
-
 import User from '../models/user';
 import Role from '../models/roles';
+import { jsonWT } from '../services/token';
 
 export const signIn = async (req, res) => {
     const { name, password } = req.body;
@@ -34,9 +33,7 @@ export const userRegister = async (req, res) => {
 
         const userSave = await newUser.save();
 
-        const token = jwt.sign({id: userSave._id}, process.env.SECRET, {
-            expiresIn: 86400
-        });
+        const token = jsonWT(86400, userSave._id);
 
         res.status(200).json({ token });
     } else {
@@ -55,15 +52,15 @@ export const userEdit = async (req, res) => {
 
     if(roles){
         const foundRoles = await Role.find({ name: {$in: roles} });
-
         roles = foundRoles.map(role => role._id);
+
     } else {
         const role = await Role.findOne({ name: "user" });
 
         roles = [ role._id ];
     }
 
-    const findUserById = await User.findById(id)
+    let findUserById = await User.findById(id)
         .catch(() => {
             error = true;
             res.status(404).json({ "error": "User not Register"});
@@ -71,28 +68,33 @@ export const userEdit = async (req, res) => {
     );
 
     if(!findUserById || error){
-        if(!error){
+        if(findUserById === null){
             res.status(404).json({ "error": "User not Register"});
         }
     } else {
-        const findUser = await User.findOne({ name });
+        dbEdit(res, id, name, { imgUrl, description, github, password, roles });
+    }
+}
 
-        if(findUser === null){
-            if(name === "") {
-                const updateUser = await sendEdit( id, { imgUrl, description, github, password, roles});
-                res.status(200).json(updateUser);
-            } else {
-                const updateUser = await sendEdit( id, { imgUrl, name, description, github, password, roles});
-                res.status(200).json(updateUser);
-            }
+async function dbEdit(res, id, name, req){
 
+    const findUser = await User.findOne({ name });
+
+    if(!findUser){
+        if(name === "") {
+            const updateUser = await sendEdit( id,  req);
+            res.status(200).json(updateUser);
         } else {
-            if(name === ""){
-                const updateUser = await sendEdit( id, { imgUrl, description, github, password, roles});
-                res.status(200).json(updateUser);
-            } else {
-                res.status(404).json({ "error": "User Register"});
-            }
+            const updateUser = await sendEdit( id, { ...req, name });
+            res.status(200).json(updateUser);
+        }
+
+    } else {
+        if(name === ""){
+            const updateUser = await sendEdit( id, req);
+            res.status(200).json(updateUser);
+        } else {
+            res.status(404).json({ "error": "User Register"});
         }
     }
 }

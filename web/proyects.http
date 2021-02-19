@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### Actualizando proyecto
-PUT http://localhost:2001/api/v1/proyect/602d7bb79767281124d1e616
+PUT http://localhost:2001/api/v1/proyect/60301aaeafd02d00d016ddab
 Content-Type: application/json
 
 {
@@ -26,10 +26,10 @@ Content-Type: application/json
 GET http://localhost:2001/api/v1/proyect
 
 ### Obteniendo un solo Proyecto
-GET http://localhost:2001/api/v1/proyect/6019ec59388c3435c416bbaf
+GET http://localhost:2001/api/v1/proyect/60301aaeafd02d00d016ddab
 
 ### Eliminando un Proyecto
-DELETE http://localhost:2001/api/v1/proyect/6019ec59388c3435c416bbaf
+DELETE http://localhost:2001/api/v1/proyect/60301af5afd02d00d016ddad
 
 ### Obteniendo N proyectos
-GET http://localhost:2001/api/v1/proyect/get/3
+GET http://localhost:2001/api/v1/proyect/get/0
