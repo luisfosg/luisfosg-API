@@ -111,11 +111,20 @@ async function sendEdit(id, req){
 
 export const userDelete = async (req, res) => {
     const id = req.params.id;
+    var error = false;
 
-    const deleteUser = await User.findByIdAndDelete(id);
-    if(deleteUser){
+    const deleteUser = await User.findByIdAndDelete(id)
+        .catch(() => {
+            error = true;
+            res.status(404).json({ "error": "User not Register"});
+        }
+    );
+
+    if(deleteUser && ( error === false ) ){
         res.status(200).json(deleteUser);
     } else {
-        res.status(404).json({ "error": "User not Register"});
+        if(deleteUser === null) {
+            res.status(404).json({ "error": "User not Register"});
+        }
     }
 }

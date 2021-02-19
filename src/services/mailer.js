@@ -4,7 +4,7 @@ import Email from '../models/emails';
 
 const conexionEmail = Mailer.createTransport({
     service: "gmail",
-    auth:{
+    auth: {
         user: process.env.EMAILFROM,
         pass: process.env.PASSWORD_EMAIL
     }
