@@ -1,6 +1,8 @@
 import User from '../models/user';
 import Role from '../models/roles';
+
 import { jsonWT } from '../services/token';
+import { sendEdit } from '../libs/sendEdit';
 
 export const signIn = async (req, res) => {
     const { name, password } = req.body;
@@ -63,14 +65,11 @@ export const userEdit = async (req, res) => {
     let findUserById = await User.findById(id)
         .catch(() => {
             error = true;
-            res.status(404).json({ "error": "User not Register"});
         }
     );
 
     if(!findUserById || error){
-        if(findUserById === null){
-            res.status(404).json({ "error": "User not Register"});
-        }
+        res.status(404).json({ "error": "User not Register"});
     } else {
         const info = await dbEdit(id, name, { imgUrl, description, github, password, roles });
 
@@ -88,31 +87,21 @@ async function dbEdit(id, name, req){
 
     if(!findUser){
         if(name === "") {
-            const updateUser = await sendEdit( id,  req);
+            const updateUser = await sendEdit( id, User, req);
             return updateUser;
         } else {
-            const updateUser = await sendEdit( id, { ...req, name });
+            const updateUser = await sendEdit( id, User, { ...req, name });
             return updateUser;
         }
 
     } else {
         if(name === ""){
-            const updateUser = await sendEdit( id, req);
+            const updateUser = await sendEdit( id, User, req);
             return updateUser;
         } else {
             return { "error": "User Register"};
         }
     }
-}
-
-async function sendEdit(id, req){
-    const updateUser = await User.findByIdAndUpdate(id, { ...req },
-        {
-            new: true
-        }
-    );
-
-    return updateUser;
 }
 
 export const userDelete = async (req, res) => {

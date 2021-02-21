@@ -1,5 +1,7 @@
 import Proyect from "../models/proyects";
 
+import { sendEdit } from '../libs/sendEdit';
+
 export const obtenerProyectos = async (_req, res) => {
     const proyects = await Proyect.find();
 
@@ -41,9 +43,22 @@ export const agregarProyecto = async (req, res) => {
 };
 
 export const editarProyecto = async (req, res) => {
+    const id = req.params.id;
     const { name, imgUrl, description, github, url } = req.body;
-    const updateProyect = await Proyect.findOneAndUpdate(req.params.id, { name, imgUrl, description, github, url }, { new: true });
-    res.status(200).json(updateProyect);
+    var error = false;
+
+    const findProyect = await Proyect.findById(id)
+        .catch(() => {
+            error = true;
+        }
+    );
+
+    if(!findProyect || error){
+        res.status(404).json({ "error": "Proyect does not Exist"});
+    } else {
+        const info = await sendEdit(id, Proyect, { name, imgUrl, description, github, url });
+        res.status(200).json(info);
+    }
 };
 
 export const eliminarProyecto = async (req, res) => {

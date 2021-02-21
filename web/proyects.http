@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### Actualizando proyecto
-PUT http://localhost:2001/api/v1/proyect/60301aaeafd02d00d016ddab
+PUT http://localhost:2001/api/v1/proyect/603043209d504a3b1c584255
 Content-Type: application/json
 
 {
