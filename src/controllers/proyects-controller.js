@@ -27,9 +27,20 @@ export const contandoProyectos = async (req, res) => {
 };
 
 export const obtenerProyecto = async (req, res) => {
-    const proyect = await Proyect.findById(req.params.id);
+    const id = req.params.id;
+    var error = false;
 
-    res.status(200).json(proyect);
+    const proyect = await Proyect.findById(id)
+        .catch(() => {
+            error = true;
+        }
+    );
+
+    if(!proyect || error){
+        res.status(404).json({ "error": "Proyect does not Exist"});
+    } else {
+        res.status(200).json(proyect);
+    }
 };
 
 export const agregarProyecto = async (req, res) => {
@@ -62,6 +73,18 @@ export const editarProyecto = async (req, res) => {
 };
 
 export const eliminarProyecto = async (req, res) => {
-    const deleteProyect = await Proyect.findByIdAndDelete(req.params.id);
-    res.status(200).json(deleteProyect);
+    const id = req.params.id;
+    var error = false;
+
+    const deleteProyect = await Proyect.findByIdAndDelete(id)
+        .catch(() => {
+            error = true;
+        }
+    );
+
+    if(!deleteProyect || error){
+        res.status(404).json({ "error": "Proyect does not Exist"});
+    } else {
+        res.status(200).json(deleteProyect);
+    }
 };

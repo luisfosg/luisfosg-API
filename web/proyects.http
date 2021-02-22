@@ -26,10 +26,10 @@ Content-Type: application/json
 GET http://localhost:2001/api/v1/proyect
 
 ### Obteniendo un solo Proyecto
-GET http://localhost:2001/api/v1/proyect/60301aaeafd02d00d016ddab
+GET http://localhost:2001/api/v1/proyect/60331ba0e508a54610550017
 
 ### Eliminando un Proyecto
-DELETE http://localhost:2001/api/v1/proyect/60301af5afd02d00d016ddad
+DELETE http://localhost:2001/api/v1/proyect/60331ba0e508a54610550017
 
 ### Obteniendo N proyectos
 GET http://localhost:2001/api/v1/proyect/get/0
