@@ -13,13 +13,17 @@ export const resEmail = async (req, res) => {
 }
 
 export const getEmail = async (req, res) => {
+    const id = req.params.id;
 
+    res.status(200).json(id);
 }
 
-export const getEmails = async (req, res) => {
-
+export const getEmails = async (_req, res) => {
+    res.status(200).json({ "status": "emails"});
 }
 
 export const deleteEmail = async (req, res) => {
+    const id = req.params.id;
 
+    res.status(200).json(id);
 }

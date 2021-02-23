@@ -7,3 +7,12 @@ Content-Type: application/json
     "email": "olv@gmail.com",
     "message": "Lorem"
 }
+
+### Eliminando correo xD
+DELETE http://localhost:2001/api/v1/contact/idprueba
+
+### Obteniendo correos xD
+GET http://localhost:2001/api/v1/contact
+
+### Obteniendo correos xD
+GET http://localhost:2001/api/v1/contact/idprueba2
