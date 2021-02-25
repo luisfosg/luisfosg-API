@@ -9,10 +9,10 @@ Content-Type: application/json
 }
 
 ### Eliminando correo xD
-DELETE http://localhost:2001/api/v1/contact/idprueba
+DELETE http://localhost:2001/api/v1/contact/6036f4e949f1ff0ccc486351
 
 ### Obteniendo correos xD
 GET http://localhost:2001/api/v1/contact
 
-### Obteniendo correos xD
-GET http://localhost:2001/api/v1/contact/idprueba2
+### Obteniendo correo xD
+GET http://localhost:2001/api/v1/contact/6036f4e949f1ff0ccc486351

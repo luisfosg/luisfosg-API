@@ -12,18 +12,43 @@ export const resEmail = async (req, res) => {
     res.status(201).json(emailSave);
 }
 
-export const getEmail = async (req, res) => {
-    const id = req.params.id;
+export const getEmails = async (_req, res) => {
+    const emails = await Email.find();
 
-    res.status(200).json(id);
+    res.status(200).json(emails);
 }
 
-export const getEmails = async (_req, res) => {
-    res.status(200).json({ "status": "emails"});
+export const getEmail = async (req, res) => {
+    const id = req.params.id;
+    var error = false;
+
+    const email = await Email.findById(id)
+        .catch(() => {
+            error = true;
+        }
+    );
+
+    if(!email || error){
+        res.status(404).json({ "error": "Email does not Exist"});
+    } else {
+        res.status(200).json(email);
+    }
 }
 
 export const deleteEmail = async (req, res) => {
     const id = req.params.id;
 
-    res.status(200).json(id);
+    var error = false;
+
+    const deleteEmail = await Email.findByIdAndDelete(id)
+        .catch(() => {
+            error = true;
+        }
+    );
+
+    if(!deleteEmail || error){
+        res.status(404).json({ "error": "Email does not Exist"});
+    } else {
+        res.status(200).json(deleteEmail);
+    }
 }
