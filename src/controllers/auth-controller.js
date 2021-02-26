@@ -6,7 +6,21 @@ import { sendEdit } from '../libs/sendEdit';
 
 export const signIn = async (req, res) => {
     const { name, password } = req.body;
-    res.status(200).json({ status: name });
+
+    const findUser = await User.findOne({ name }).populate("roles");
+
+    if(!findUser) {
+        return res.status(400).json({ status: "User not Register" });
+    }
+    const matchPassword = await User.compararContrasenia(password, findUser.password);
+
+    if(!matchPassword){
+        return res.status(401).json({ status: "Invalid Password" });
+    }
+
+    const token = jsonWT(86400, findUser._id);
+
+    res.status(200).json({ token });
 }
 
 export const userRegister = async (req, res) => {

@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "name": "LuisFOsG",
-    "password": "Uff Men"
+    "password": "Contraseña xD"
 }
 
 ### Registrandose a la Plataforma
@@ -34,4 +34,4 @@ Content-Type: application/json
 }
 
 ### Eliminando Usuario xD
-DELETE http://localhost:2001/api/v1/user/6031bc39a5fa1045e0ccecfd
+DELETE http://localhost:2001/api/v1/user/6038590ae012862288f6ab05
