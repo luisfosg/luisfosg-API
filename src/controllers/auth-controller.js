@@ -18,7 +18,7 @@ export const signIn = async (req, res) => {
         return res.status(401).json({ status: "Invalid Password" });
     }
 
-    const token = jsonWT(86400, findUser._id);
+    const token = jsonWTSend(86400, findUser._id);
 
     res.status(200).json({ token });
 }
@@ -49,7 +49,7 @@ export const userRegister = async (req, res) => {
 
         const userSave = await newUser.save();
 
-        const token = jsonWT(86400, userSave._id);
+        const token = jsonWTSend(86400, userSave._id);
 
         res.status(200).json({ token });
     } else {

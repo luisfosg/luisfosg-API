@@ -1,13 +1,14 @@
 import { Router } from "express";
 const router = Router();
 
+import { verifyToken } from "../../../middlewares";
 import * as proyectCtrl from '../../../controllers/proyects-controller';
 
 router.get("/", proyectCtrl.obtenerProyectos);
-router.post("/", proyectCtrl.agregarProyecto);
 router.get("/:id", proyectCtrl.obtenerProyecto);
-router.put("/:id", proyectCtrl.editarProyecto);
-router.delete("/:id", proyectCtrl.eliminarProyecto);
+router.post("/", verifyToken, proyectCtrl.agregarProyecto);
+router.put("/:id", verifyToken, proyectCtrl.editarProyecto);
+router.delete("/:id", verifyToken, proyectCtrl.eliminarProyecto);
 
 router.get("/get/:num", proyectCtrl.contandoProyectos);
 
