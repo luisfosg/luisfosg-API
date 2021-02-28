@@ -37,13 +37,10 @@ const userRole = async ( Role ) => {
 
 export const asignandoRoles = async (roles, Role) => {
     if(roles) {
-        if(roles.length===0){
-            return await userRole(Role);
-        } else {
-            const foundRoles = await Role.find({ name: {$in: roles} });
+        const foundRoles = await Role.find({ name: {$in: roles} });
+        if(foundRoles.length===0) return await userRole(Role);
 
-            return foundRoles.map(role => role._id);
-        }
+        return foundRoles.map(role => role._id);
     } else {
         return await userRole(Role);
     }
