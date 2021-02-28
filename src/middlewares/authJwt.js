@@ -8,9 +8,13 @@ export const verifyToken = async (req, res, next) => {
 
     const decoded = jsonWTVerify(token);
 
-    const user = await User.findById(decoded.id, { password: 0});
+    if(!decoded) return res.status(403).json({ "status": "No Token Provided" });
+
+    const user = await User.findById(decoded.id, { password: 0 });
 
     if(!user) return res.status(404).json({ "status": "User no Found"});
 
     next();
 }
+
+export const isAdmin = async (req, res, next);

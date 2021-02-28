@@ -22,14 +22,16 @@ export const sendEmail = async (from, msg, name, id) => {
         `,
     };
 
-    conexionEmail.sendMail(mailOptions, async function (err, info) {
-        if (err) {
-            await Email.findByIdAndUpdate(id, { response: "No enviado" });
-            console.log(err);
-        }
-        else {
-            await Email.findByIdAndUpdate(id, { response: "Enviado" });
-            console.log(info.response);
-        }
-    });
+    try {
+        conexionEmail.sendMail(mailOptions, async function (err, _info) {
+            if (err) {
+                await Email.findByIdAndUpdate(id, { response: "No enviado" });
+            }
+            else {
+                await Email.findByIdAndUpdate(id, { response: "Enviado" });
+            }
+        });
+    } catch (error) {
+        console.log("No enviado");
+    }
 }

@@ -1,7 +1,7 @@
 import User from '../models/user';
 import Role from '../models/roles';
 
-import { jsonWT } from '../services/token';
+import { jsonWTSend } from '../services/token';
 import { sendEdit } from '../libs/sendEdit';
 
 export const signIn = async (req, res) => {

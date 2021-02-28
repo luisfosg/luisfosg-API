@@ -1,15 +1,29 @@
 import { Router } from "express";
 const router = Router();
 
-import { verifyToken } from "../../../middlewares";
+import { authJwt } from "../../../middlewares";
 import * as proyectCtrl from '../../../controllers/proyects-controller';
 
 router.get("/", proyectCtrl.obtenerProyectos);
 router.get("/:id", proyectCtrl.obtenerProyecto);
-router.post("/", verifyToken, proyectCtrl.agregarProyecto);
-router.put("/:id", verifyToken, proyectCtrl.editarProyecto);
-router.delete("/:id", verifyToken, proyectCtrl.eliminarProyecto);
-
 router.get("/get/:num", proyectCtrl.contandoProyectos);
+
+router.post(
+    "/",
+    [ authJwt.verifyToken, authJwt.isAdmin ],
+    proyectCtrl.agregarProyecto
+);
+
+router.put(
+    "/:id",
+    [ authJwt.verifyToken, authJwt.isAdmin ],
+    proyectCtrl.editarProyecto
+);
+
+router.delete(
+    "/:id",
+    [ authJwt.verifyToken, authJwt.isAdmin ],
+    proyectCtrl.eliminarProyecto
+);
 
 export default router;

@@ -9,7 +9,11 @@ export const jsonWTSend = (expires, id) => {
 }
 
 export const jsonWTVerify = ( token ) => {
-    const decoded = jwt.verify(token, process.env.SECRET);
+    try {
+        const decoded = jwt.verify(token, process.env.SECRET);
 
-    return decoded;
+        return decoded;
+    } catch {
+        return false;
+    }
 }
