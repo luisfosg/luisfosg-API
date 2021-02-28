@@ -16,7 +16,7 @@ router.delete(
 
 router.put(
     "/user/:id",
-    [ authJwt.verifyToken ],
+    [ authJwt.verifyToken, authJwt.isAdmin ],
     authCtrl.userEdit
 );
 

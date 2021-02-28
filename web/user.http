@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Editando Usuario xD
-PUT http://localhost:2001/api/v1/user/603b01505b93100dbc6e4010
+PUT http://localhost:2001/api/v1/user/603c1dacfe84b74d18e4edd3
 x-access-token: token
 Content-Type: application/json
 
@@ -35,4 +35,5 @@ Content-Type: application/json
 }
 
 ### Eliminando Usuario xD
-DELETE http://localhost:2001/api/v1/user/6038590ae012862288f6ab05
+DELETE http://localhost:2001/api/v1/user/603c1dacfe84b74d18e4edd3
+x-access-token: token

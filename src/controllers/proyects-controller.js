@@ -1,6 +1,6 @@
 import Proyect from "../models/proyects";
 
-import { sendEdit } from '../libs/sendEdit';
+import { sendEdit } from '../libs/reutilizable';
 
 export const obtenerProyectos = async (_req, res) => {
     const proyects = await Proyect.find();
@@ -67,7 +67,7 @@ export const editarProyecto = async (req, res) => {
     if(!findProyect || error){
         res.status(404).json({ "error": "Proyect does not Exist"});
     } else {
-        const info = await sendEdit(id, Proyect, { name, imgUrl, description, github, url });
+        const info = await sendEdit(Proyect, id, { name, imgUrl, description, github, url });
         res.status(200).json(info);
     }
 };

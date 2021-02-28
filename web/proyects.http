@@ -1,5 +1,6 @@
 ### Creando proyecto
 POST http://localhost:2001/api/v1/proyect
+x-access-token: token
 Content-Type: application/json
 
 {
@@ -11,7 +12,8 @@ Content-Type: application/json
 }
 
 ### Actualizando proyecto
-PUT http://localhost:2001/api/v1/proyect/603043209d504a3b1c584255
+PUT http://localhost:2001/api/v1/proyect/603c2043c4ca111bf06d63c4
+x-access-token: token
 Content-Type: application/json
 
 {
@@ -22,14 +24,15 @@ Content-Type: application/json
     "url": "URL"
 }
 
+### Eliminando un Proyecto
+DELETE http://localhost:2001/api/v1/proyect/603c2043c4ca111bf06d63c4
+x-access-token: token
+
 ### Obteniendo proyectos
 GET http://localhost:2001/api/v1/proyect
 
 ### Obteniendo un solo Proyecto
 GET http://localhost:2001/api/v1/proyect/60331ba0e508a54610550017
-
-### Eliminando un Proyecto
-DELETE http://localhost:2001/api/v1/proyect/60331ba0e508a54610550017
 
 ### Obteniendo N proyectos
 GET http://localhost:2001/api/v1/proyect/get/0
