@@ -21,7 +21,8 @@ Content-Type: application/json
 }
 
 ### Editando Usuario xD
-PUT http://localhost:2001/api/v1/user/6031bc39a5fa1045e0ccecfd
+PUT http://localhost:2001/api/v1/user/603b01505b93100dbc6e4010
+x-access-token: token
 Content-Type: application/json
 
 {
