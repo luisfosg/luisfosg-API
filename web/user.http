@@ -35,5 +35,5 @@ Content-Type: application/json
 }
 
 ### Eliminando Usuario xD
-DELETE http://localhost:2001/api/v1/user/603c1dacfe84b74d18e4edd3
+DELETE http://localhost:2001/api/v1/user/603d715dd58a9a1150cbd000
 x-access-token: token

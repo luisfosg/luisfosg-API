@@ -1,4 +1,8 @@
-### Recibiendo correo xD
+### Recibiendo Imagen
 POST http://localhost:2001/api/v1/image
 x-access-token: token
 Content-Type: multipart/form-data
+
+### Eliminando Imagen
+DELETE http://localhost:2001/api/v1/image/603d780e405dc617e0bbc467
+x-access-token: token
