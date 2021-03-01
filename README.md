@@ -2,7 +2,6 @@
 
 ## TODO:
 
-- Posibilidad de enviar imagenes al servidor.
 - Verificar Tiempo de Uso del Token
 - Probar backend en el portafolio
 - Probar backemd en Manage LuisFOsG

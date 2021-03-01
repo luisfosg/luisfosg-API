@@ -1,5 +1,3 @@
-export const sendImage = async (req, res) => {
-    console.log(req.file);
-
-    res.send("ok");
+export const sendImage = async (_req, res) => {
+    res.status(200).json({ status: "Imagen creada" });
 }
