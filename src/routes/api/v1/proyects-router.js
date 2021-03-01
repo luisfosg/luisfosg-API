@@ -1,8 +1,9 @@
 import { Router } from "express";
-const router = Router();
 
 import { authJwt } from "../../../middlewares";
 import * as proyectCtrl from '../../../controllers/proyects-controller';
+
+const router = Router();
 
 router.get("/", proyectCtrl.obtenerProyectos);
 router.get("/:id", proyectCtrl.obtenerProyecto);

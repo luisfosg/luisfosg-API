@@ -1,2 +1,4 @@
 ### Recibiendo correo xD
 POST http://localhost:2001/api/v1/image
+x-access-token: token
+Content-Type: multipart/form-data

@@ -1,9 +1,11 @@
 import { Router } from "express";
-const router = Router();
 
+import { authJwt } from "../../../middlewares";
 import { upload }  from '../../../services/multer';
 import * as imageCtrl from '../../../controllers/images-controller';
 
-router.post("/", upload.single("image"), imageCtrl.sendImage);
+const router = Router();
+
+router.post("/", [ authJwt.verifyToken, authJwt.isAdmin, upload.single("image")], imageCtrl.sendImage);
 
 export default router;

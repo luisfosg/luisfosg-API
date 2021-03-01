@@ -1,8 +1,9 @@
 import { Router } from "express";
-const router = Router();
 
 import { authJwt } from "../../../middlewares";
 import * as contactCtrl from '../../../controllers/contact-controller';
+
+const router = Router();
 
 router.post("/", contactCtrl.resEmail);
 router.get("/", contactCtrl.getEmails);
