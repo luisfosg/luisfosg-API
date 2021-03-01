@@ -1,12 +1,15 @@
 # API LuisFOsG
 
+
+<img src="http://localhost:2001/images/banner.gif" >
+
 ## TODO:
 
 - Verificar Tiempo de Uso del Token
 - Probar backend en el portafolio
-- Probar backemd en Manage LuisFOsG
+- Probar backend en Manage LuisFOsG
 - Cambiando todo a ingles xD
-- Despliege
+- Despliegue
 
 ## Variables de Entorno
 

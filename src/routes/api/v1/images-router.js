@@ -6,6 +6,10 @@ import * as imageCtrl from '../../../controllers/images-controller';
 
 const router = Router();
 
-router.post("/", [ authJwt.verifyToken, authJwt.isAdmin, upload.single("image")], imageCtrl.sendImage);
+router.post(
+    "/",
+    [ authJwt.verifyToken, authJwt.isAdmin, upload.single("image")],
+    imageCtrl.sendImage
+);
 
 export default router;
