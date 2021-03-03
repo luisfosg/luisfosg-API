@@ -3,8 +3,14 @@ import path from 'path';
 import { unlink } from 'fs-extra';
 
 export const sendImage = async (req, res) => {
+    const name = req.file.originalname;
+
+    const oldImage = await Image.findOneAndUpdate({ name }, { name });
+
+    if(oldImage) return res.status(200).json(oldImage);
+
     const newImage = new Image({
-        name: req.file.originalname
+        name
     });
 
     const imageSave = await newImage.save();
