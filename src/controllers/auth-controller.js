@@ -95,3 +95,15 @@ export const userDelete = async (req, res) => {
         }
     }
 }
+
+export const getUsers = async (_req, res) => {
+    const users = await User.find();
+
+    res.status(200).json(users);
+}
+
+export const userInfo = async (req, res) => {
+    const user = await User.findById(req.userId);
+
+    res.status(200).json({ user });
+}
