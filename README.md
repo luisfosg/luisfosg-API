@@ -1,6 +1,5 @@
 # API LuisFOsG
 
-
 <img src="http://localhost:2001/images/banner.gif" >
 
 ## TODO:
@@ -15,5 +14,6 @@
 
 - EMAILFROM
 - PASSWORD_EMAIL
+- SERVICE
 - EMAILTO
 - SECRET

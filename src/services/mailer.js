@@ -3,7 +3,7 @@ import Mailer from 'nodemailer';
 import Email from '../models/emails';
 
 const conexionEmail = Mailer.createTransport({
-    service: "gmail",
+    service: process.env.SERVICE,
     auth: {
         user: process.env.EMAILFROM,
         pass: process.env.PASSWORD_EMAIL
@@ -32,6 +32,6 @@ export const sendEmail = async (from, msg, name, id) => {
             }
         });
     } catch (error) {
-        console.log("No enviado");
+        await Email.findByIdAndUpdate(id, { response: "No enviado" });
     }
 }
