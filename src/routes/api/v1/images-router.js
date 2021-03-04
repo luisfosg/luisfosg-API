@@ -6,16 +6,18 @@ import * as imageCtrl from '../../../controllers/images-controller';
 
 const router = Router();
 
-router.delete(
-    "/:id",
-    [ authJwt.verifyToken, authJwt.isAdmin],
-    imageCtrl.deleteImage
-);
+router.get("/", imageCtrl.getImages);
 
 router.post(
     "/",
     [ authJwt.verifyToken, authJwt.isAdmin, upload.single("image")],
     imageCtrl.sendImage
+);
+
+router.delete(
+    "/:id",
+    [ authJwt.verifyToken, authJwt.isAdmin],
+    imageCtrl.deleteImage
 );
 
 export default router;

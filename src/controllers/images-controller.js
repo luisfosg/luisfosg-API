@@ -5,7 +5,9 @@ import { unlink } from 'fs-extra';
 export const sendImage = async (req, res) => {
     const name = req.file.originalname;
 
-    const oldImage = await Image.findOneAndUpdate({ name }, { name });
+    const oldImage = await Image.findOneAndUpdate({ name }, { name }, {
+        new: true
+    });
 
     if(oldImage) return res.status(200).json(oldImage);
 
@@ -18,6 +20,12 @@ export const sendImage = async (req, res) => {
     res.status(200).json(imageSave);
 }
 
+export const getImages = async (_req, res) => {
+    const images = await Image.find();
+
+    res.status(200).json(images);
+}
+
 export const deleteImage = async (req, res) => {
     const id = req.params.id;
     var error = false;
@@ -28,11 +36,13 @@ export const deleteImage = async (req, res) => {
         }
     );
 
-    unlink(path.resolve("./src/public/images/"+deleteImage.name));
-
     if(!deleteImage || error){
         res.status(404).json({ "error": "Image does not Exist"});
     } else {
+        unlink(path.resolve("./src/public/images/"+deleteImage.name)).catch(() => {
+            error = true;
+        });
+
         res.status(200).json(deleteImage);
     }
 }
