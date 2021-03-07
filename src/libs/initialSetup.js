@@ -1,6 +1,4 @@
 import Role from '../models/roles';
-import path from 'path'
-import fs from 'fs-extra'
 
 export const createRoles = async () => {
     const count = await Role.estimatedDocumentCount();
@@ -13,13 +11,4 @@ export const createRoles = async () => {
     ]);
 
     console.log(values);
-}
-
-export const createPublic = async () => {
-    fs.mkdir(path.join(__dirname, "../public"), () => {
-        console.log("");
-    });
-    fs.mkdir(path.join(__dirname, "../public/images"), () => {
-        console.log("");
-    });
 }

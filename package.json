@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node",
-    "build": "babel src --out-dir dist",
+    "build": "babel src --out-dir dist && npm run copy",
+    "copy": "copyfiles --up 1 src/public/* src/public/images/* dist",
     "start": "node dist/index.js"
   },
   "repository": {
@@ -39,6 +40,7 @@
     "@babel/core": "^7.13.8",
     "@babel/node": "^7.13.0",
     "@babel/preset-env": "^7.13.9",
+    "copyfiles": "^2.4.1",
     "nodemon": "^2.0.7"
   }
 }
