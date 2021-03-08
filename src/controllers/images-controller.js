@@ -39,7 +39,7 @@ export const deleteImage = async (req, res) => {
     if(!deleteImage || error){
         res.status(404).json({ "error": "Image does not Exist"});
     } else {
-        unlink(path.resolve("./src/public/images/"+deleteImage.name)).catch(() => {
+        unlink(path.join( __dirname, "../public/images/"+deleteImage.name)).catch(() => {
             error = true;
         });
 

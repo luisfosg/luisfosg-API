@@ -9,11 +9,13 @@ Content-Type: application/json
 }
 
 ### Eliminando correo xD
-DELETE http://localhost:2001/api/v1/contact/603941c803d8861c54ef03d8
+DELETE http://localhost:2001/api/v1/contact/6045798dadff0814501a73e0
 x-access-token: token
 
 ### Obteniendo correos xD
 GET http://localhost:2001/api/v1/contact
+x-access-token: token
 
 ### Obteniendo correo xD
-GET http://localhost:2001/api/v1/contact/603adccee595fe499c60cdc4
+GET http://localhost:2001/api/v1/contact/6045798dadff0814501a73e0
+x-access-token: token

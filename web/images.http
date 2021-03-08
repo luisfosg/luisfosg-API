@@ -4,7 +4,7 @@ x-access-token: token
 Content-Type: multipart/form-data
 
 ### Eliminando Imagen
-DELETE http://localhost:2001/api/v1/image/6041653cbccca543683732b9
+DELETE http://localhost:2001/api/v1/image/60457389f9f6631c3cd655a0
 x-access-token: token
 
 ### Obteniendo Imagenes
