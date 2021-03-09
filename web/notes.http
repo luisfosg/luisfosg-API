@@ -1,19 +1,31 @@
 ### Enviando Notas
 POST http://localhost:2001/api/v1/note
 x-access-token: token
+Content-Type: application/json
+
+{
+    "title": "Prueba",
+    "description": "Esta es una prueba :0"
+}
 
 ### Obteniendo Notas
 GET http://localhost:2001/api/v1/note
 x-access-token: token
 
 ### Obteniendo Nota
-GET http://localhost:2001/api/v1/note/idprueba
+GET http://localhost:2001/api/v1/note/6046eda2868d7c2d5c85704c
 x-access-token: token
 
 ### Editando Nota
-PUT http://localhost:2001/api/v1/note/idprueba
+PUT http://localhost:2001/api/v1/note/6046eda2868d7c2d5c85704c
 x-access-token: token
+Content-Type: application/json
+
+{
+    "title": "Editando Prueba",
+    "description": "Esta es una prueba :0"
+}
 
 ### Eliminando Nota
-DELETE http://localhost:2001/api/v1/note/idprueba
+DELETE http://localhost:2001/api/v1/note/6046eda7868d7c2d5c85704d
 x-access-token: token

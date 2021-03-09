@@ -2,10 +2,9 @@ import { Schema, model } from 'mongoose';
 
 const noteSchema = new Schema({
     title: { type: String, required: true },
-    description: { type: String, required: true },
-    date: { type: Date, default: new Date() }
+    description: { type: String, required: true }
 }, {
-    timestamps: false,
+    timestamps: true,
     versionKey: false
 });
 
