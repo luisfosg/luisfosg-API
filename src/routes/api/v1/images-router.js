@@ -10,13 +10,13 @@ router.get("/", imageCtrl.getImages);
 
 router.post(
     "/",
-    [ authJwt.verifyToken, authJwt.isAdmin, upload.single("image")],
+    [ authJwt.verifyToken, authJwt.isAdmin, upload.single("image") ],
     imageCtrl.sendImage
 );
 
 router.delete(
     "/:id",
-    [ authJwt.verifyToken, authJwt.isAdmin],
+    [ authJwt.verifyToken, authJwt.isAdmin ],
     imageCtrl.deleteImage
 );
 

@@ -1,2 +1,19 @@
 ### Enviando Notas
 POST http://localhost:2001/api/v1/note
+x-access-token: token
+
+### Obteniendo Notas
+GET http://localhost:2001/api/v1/note
+x-access-token: token
+
+### Obteniendo Nota
+GET http://localhost:2001/api/v1/note/idprueba
+x-access-token: token
+
+### Editando Nota
+PUT http://localhost:2001/api/v1/note/idprueba
+x-access-token: token
+
+### Eliminando Nota
+DELETE http://localhost:2001/api/v1/note/idprueba
+x-access-token: token
