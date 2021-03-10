@@ -17,7 +17,8 @@ Content-Type: application/json
     "description": "Estudiando 2.0",
     "password": "Contraseña xD",
     "github": "LuisFOsG",
-    "roles": [ "admin" ]
+    "roles": [ "admin" ],
+    "encode": "Password API"
 }
 
 ### Editando Usuario xD

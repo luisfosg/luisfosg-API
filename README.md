@@ -4,8 +4,6 @@
 
 ## TODO:
 
-- Modelando Notas
-- Verificar Warnning de Mongodb
 - Probar backend en el portafolio
 - Probar backend en Manage LuisFOsG
 - Cambiando todo a ingles xD

@@ -21,7 +21,9 @@ export const signIn = async (req, res) => {
 }
 
 export const userRegister = async (req, res) => {
-    const { imgUrl, name, description, github, password, roles } = req.body;
+    const { imgUrl, name, description, github, password, roles, encode } = req.body;
+
+    if(!encode || encode!==process.env.ENCODE) return res.status(404).json({ "error": "Does not have permissions" });
 
     const findUser = await User.findOne({ name });
 
@@ -42,7 +44,7 @@ export const userRegister = async (req, res) => {
 
         res.status(200).json({ token });
     } else {
-        res.status(404).json({ "error": "User Register"});
+        res.status(404).json({ "error": "User Register" });
     }
 }
 
