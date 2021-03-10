@@ -1,11 +1,17 @@
 import Note from '../models/notes';
+import { encripText } from '../libs/reutilizable';
 
 export const sendNote = async (req, res) => {
-    const { title, description } = req.body;
+    const { title, description, encode } = req.body;
+    var descrip = description
+
+    if(encode==="true") {
+        descrip = encripText(descrip);
+    }
 
     const newNote = new Note({
         title,
-        description
+        description: descrip
     })
 
     const saveNote = await newNote.save();

@@ -5,7 +5,8 @@ Content-Type: application/json
 
 {
     "title": "Prueba",
-    "description": "Esta es una prueba :0"
+    "description": "Esta es una prueba :0",
+    "encode": "true"
 }
 
 ### Obteniendo Notas

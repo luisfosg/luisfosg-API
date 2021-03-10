@@ -45,3 +45,7 @@ export const asignandoRoles = async (roles, Role) => {
         return await userRole(Role);
     }
 }
+
+export const encripText = async (text) => {
+    return text;
+}
