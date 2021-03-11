@@ -28,5 +28,5 @@ Content-Type: application/json
 }
 
 ### Eliminando Nota
-DELETE http://localhost:2001/api/v1/note/6046eda7868d7c2d5c85704d
+DELETE http://localhost:2001/api/v1/note/604a87207d325226fc5ce530
 x-access-token: token

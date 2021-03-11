@@ -6,13 +6,13 @@ export const sendNote = async (req, res) => {
     var descrip = description
 
     if(encode==="true") {
-        descrip = encripText(descrip);
+        descrip = await encripText(descrip);
     }
 
     const newNote = new Note({
         title,
         description: descrip
-    })
+    });
 
     const saveNote = await newNote.save();
 

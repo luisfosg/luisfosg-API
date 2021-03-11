@@ -47,5 +47,7 @@ export const asignandoRoles = async (roles, Role) => {
 }
 
 export const encripText = async (text) => {
+    text = Buffer.from(text).toString('base64');
+
     return text;
 }
