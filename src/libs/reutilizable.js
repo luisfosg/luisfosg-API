@@ -1,3 +1,5 @@
+import Cryptr from 'cryptr';
+
 export const sendEdit = async (model, id, req) => {
     const updateUser = await model.findByIdAndUpdate(id, { ...req },
         {
@@ -47,7 +49,9 @@ export const asignandoRoles = async (roles, Role) => {
 }
 
 export const encripText = async (text) => {
-    text = Buffer.from(text).toString('base64');
+    const encode = new Cryptr(process.env.ENCODE);
+
+    text = encode.encrypt(text);
 
     return text;
 }
