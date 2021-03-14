@@ -4,7 +4,7 @@ import * as encryCtrl from '../../../controllers/encrypt-controller';
 
 const router = Router();
 
-router.post("/enc", encryCtrl.encrypt);
-router.post("/dec", encryCtrl.decrypt);
+router.get("/enc/:psw/:txt", encryCtrl.encrypt);
+router.get("/dec/:psw/:txt", encryCtrl.decrypt);
 
 export default router;

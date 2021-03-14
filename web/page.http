@@ -1,8 +1,8 @@
 ### Pagina Principal
 GET http://localhost:2001/
 
-### Pagina Principal
-POST http://localhost:2001/api/v1/text/enc
+### Encriptar texto
+GET http://localhost:2001/api/v1/text/enc/password/text
 
-### Pagina Principal
-POST http://localhost:2001/api/v1/text/dec
+### Desencriptar texto
+GET http://localhost:2001/api/v1/text/dec/password/text
