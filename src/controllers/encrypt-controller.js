@@ -1,7 +1,8 @@
 import { decripText, encripText } from '../services/encrypt';
 
 export const encrypt = async (req, res) => {
-    const { txt, psw } = req.params;
+    let { txt, psw } = req.params;
+    txt = txt.replaceAll("-", " ");
 
     const text = await encripText(txt, psw);
 
