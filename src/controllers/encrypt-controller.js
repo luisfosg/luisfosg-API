@@ -1,9 +1,17 @@
+import { decripText, encripText } from '../services/encrypt';
+
 export const encrypt = async (req, res) => {
     const { txt, psw } = req.params;
-    res.status(200).json({ txt, psw });
+
+    const text = await encripText(txt, psw);
+
+    res.status(200).json({ text });
 }
 
 export const decrypt = async (req, res) => {
     const { txt, psw } = req.params;
-    res.status(200).json({ txt, psw });
+
+    const text = await decripText(txt, psw);
+
+    res.status(200).json({ text });
 }
