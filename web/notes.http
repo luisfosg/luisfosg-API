@@ -24,7 +24,8 @@ Content-Type: application/json
 
 {
     "title": "Editando Prueba",
-    "description": "Esta es una prueba :0"
+    "description": "Esta es una prueba :0",
+    "encode": "true"
 }
 
 ### Eliminando Nota

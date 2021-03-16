@@ -44,10 +44,15 @@ export const getNotes = async (_req, res) => {
 
 export const editNote = async (req, res) => {
     const id = req.params.id;
-    const { title, description } = req.body;
+    const { title, description, encode } = req.body;
     var error = false;
+    var descrip = description;
 
-    const editNote = await Note.findByIdAndUpdate(id, { title, description }, { new: true })
+    if(encode==="true") {
+        descrip = await encripText(descrip, process.env.ENCODE);
+    }
+
+    const editNote = await Note.findByIdAndUpdate(id, { title, description: descrip }, { new: true })
         .catch(() => {
             error = true;
         }
