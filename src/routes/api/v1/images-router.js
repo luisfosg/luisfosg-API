@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { authJwt } from "../../../middlewares";
-import { upload }  from '../../../services/multer';
+import { uploadImage }  from '../../../services/multer';
 import * as imageCtrl from '../../../controllers/images-controller';
 
 const router = Router();
@@ -10,7 +10,7 @@ router.get("/", imageCtrl.getImages);
 
 router.post(
     "/",
-    [ authJwt.verifyToken, authJwt.isAdmin, upload.single("image") ],
+    [ authJwt.verifyToken, authJwt.isAdmin, uploadImage.single("image") ],
     imageCtrl.sendImage
 );
 
