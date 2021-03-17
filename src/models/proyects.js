@@ -1,11 +1,17 @@
 import { Schema, model } from 'mongoose';
 
 const proyectSchema = new Schema({
-    imgUrl: { type: String, required: true },
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    github: { type: String, required: true },
-    url: { type: String, required: true }
+    es: [{
+        name: { type: String },
+        description: { type: String },
+    }],
+    en: [{
+        name: { type: String },
+        description: { type: String },
+    }],
+    imgUrl: { type: String },
+    github: { type: String },
+    url: { type: String }
 }, {
     timestamps: true,
     versionKey: false

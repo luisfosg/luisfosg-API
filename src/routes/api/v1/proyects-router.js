@@ -5,26 +5,26 @@ import * as proyectCtrl from '../../../controllers/proyects-controller';
 
 const router = Router();
 
-router.get("/", proyectCtrl.obtenerProyectos);
-router.get("/:id", proyectCtrl.obtenerProyecto);
-router.get("/get/:num", proyectCtrl.contandoProyectos);
+router.get("/", proyectCtrl.getProyects);
+router.get("/:id", proyectCtrl.getProyect);
+router.get("/get/:num", proyectCtrl.countProyect);
 
 router.post(
     "/",
     [ authJwt.verifyToken, authJwt.isAdmin ],
-    proyectCtrl.agregarProyecto
+    proyectCtrl.sendProyect
 );
 
 router.put(
     "/:id",
     [ authJwt.verifyToken, authJwt.isAdmin ],
-    proyectCtrl.editarProyecto
+    proyectCtrl.editProyect
 );
 
 router.delete(
     "/:id",
     [ authJwt.verifyToken, authJwt.isAdmin ],
-    proyectCtrl.eliminarProyecto
+    proyectCtrl.deleteProyect
 );
 
 export default router;

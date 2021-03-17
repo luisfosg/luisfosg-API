@@ -5,34 +5,38 @@ Content-Type: application/json
 
 {
     "imgUrl": "img2.jpg",
-    "name": "Nuevo Proyecto Prueba",
-    "description": "Esta es una Descripcion 2",
+    "name_es": "Nuevo Proyecto Prueba",
+    "name_en": "New Proyect",
+    "description_es": "Esta es una Descripcion 2",
+    "description_en": "It is a description",
     "github": "LuisFOsG/prueba2",
     "url": "url del proyecto xd"
 }
 
 ### Actualizando proyecto
-PUT http://localhost:2001/api/v1/proyect/603c2043c4ca111bf06d63c4
+PUT http://localhost:2001/api/v1/proyect/605285566d196f4b5cf61721
 x-access-token: token
 Content-Type: application/json
 
 {
     "imgUrl": "img.jpg",
-    "name": "Nuevo Proyecto",
-    "description": "Hola Mundo xd",
+    "name_es": "Nuevo Proyecto Prueba Editado",
+    "name_en": "New Proyect Edit",
+    "description_es": "Esta es una Descripcion",
+    "description_en": "It is a description 2",
     "github": "LuisFOsG/prueba",
-    "url": "URL"
+    "url": "url del proyecto xd"
 }
 
 ### Eliminando un Proyecto
-DELETE http://localhost:2001/api/v1/proyect/603c2043c4ca111bf06d63c4
+DELETE http://localhost:2001/api/v1/proyect/605285566d196f4b5cf61721
 x-access-token: token
 
 ### Obteniendo proyectos
 GET http://localhost:2001/api/v1/proyect
 
 ### Obteniendo un solo Proyecto
-GET http://localhost:2001/api/v1/proyect/60331ba0e508a54610550017
+GET http://localhost:2001/api/v1/proyect/605282ba925c201a901f8742
 
 ### Obteniendo N proyectos
 GET http://localhost:2001/api/v1/proyect/get/0
