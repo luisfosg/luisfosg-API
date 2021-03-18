@@ -5,10 +5,10 @@ Content-Type: application/json
 
 {
     "imgUrl": "img2.jpg",
-    "name_es": "Nuevo Proyecto Prueba",
-    "name_en": "New Proyect",
-    "description_es": "Esta es una Descripcion 2",
-    "description_en": "It is a description",
+    "nameEs": "Nuevo Proyecto Prueba",
+    "nameEn": "New Proyect",
+    "descriptionEs": "Esta es una Descripcion 2",
+    "descriptionEn": "It is a description",
     "github": "LuisFOsG/prueba2",
     "url": "url del proyecto xd"
 }
@@ -20,10 +20,10 @@ Content-Type: application/json
 
 {
     "imgUrl": "img.jpg",
-    "name_es": "Nuevo Proyecto Prueba Editado",
-    "name_en": "New Proyect Edit",
-    "description_es": "Esta es una Descripcion",
-    "description_en": "It is a description 2",
+    "nameEs": "Nuevo Proyecto Prueba Editado",
+    "nameEn": "New Proyect Edit",
+    "descriptionEs": "Esta es una Descripcion",
+    "descriptionEn": "It is a description 2",
     "github": "LuisFOsG/prueba",
     "url": "url del proyecto xd"
 }

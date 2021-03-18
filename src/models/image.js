@@ -1,10 +1,10 @@
 import { Schema, model } from 'mongoose';
 
-const imageSchema = new Schema({
-    name: String,
+const imageSchema = new Schema( {
+	name: String,
 }, {
-    timestamps: true,
-    versionKey: false
-});
+	timestamps: true,
+	versionKey: false,
+} );
 
-export default model("Image", imageSchema);
+export default model( 'Image', imageSchema );

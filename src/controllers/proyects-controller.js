@@ -1,114 +1,114 @@
-import Proyect from "../models/proyects";
+import Proyect from '../models/proyects';
 
 import { sendEdit } from '../libs/reutilizable';
 
-export const sendProyect = async (req, res) => {
-    const {
-        imgUrl,
-        name_es,
-        name_en,
-        description_es,
-        description_en,
-        github,
-        url
-    } = req.body;
+export const sendProyect = async ( req, res ) => {
+	const {
+		imgUrl,
+		nameEs,
+		nameEn,
+		descriptionEs,
+		descriptionEn,
+		github,
+		url,
+	} = req.body;
 
-    const es = { name: name_es, description: description_es };
-    const en = { name: name_en, description: description_en };
+	const es = { name: nameEs, description: descriptionEs };
+	const en = { name: nameEn, description: descriptionEn };
 
-    const newProyect = new Proyect({ es, en, imgUrl, github, url});
+	const newProyect = new Proyect( {
+		es, en, imgUrl, github, url,
+	} );
 
-    const proyectSave = await newProyect.save();
+	const proyectSave = await newProyect.save();
 
-    res.status(200).json(proyectSave);
-}
-
-export const editProyect = async (req, res) => {
-    const id = req.params.id;
-
-    const {
-        imgUrl,
-        name_es,
-        name_en,
-        description_es,
-        description_en,
-        github,
-        url
-    } = req.body;
-
-    const es = { name: name_es, description: description_es };
-    const en = { name: name_en, description: description_en };
-
-    var error = false;
-
-    const findProyect = await Proyect.findById(id)
-        .catch(() => {
-            error = true;
-        }
-    );
-
-    if(!findProyect || error){
-        res.status(404).json({ "error": "Proyect does not Exist"});
-    } else {
-        const info = await sendEdit(Proyect, id, { es, en, imgUrl, github, url });
-        res.status(200).json(info);
-    }
+	res.status( 200 ).json( proyectSave );
 };
 
-export const getProyects = async (_req, res) => {
-    const proyects = await Proyect.find();
+export const editProyect = async ( req, res ) => {
+	const { id } = req.params;
 
-    res.status(200).json(proyects);
+	const {
+		imgUrl,
+		nameEs,
+		nameEn,
+		descriptionEs,
+		descriptionEn,
+		github,
+		url,
+	} = req.body;
+
+	const es = { name: nameEs, description: descriptionEs };
+	const en = { name: nameEn, description: descriptionEn };
+
+	let error = false;
+
+	const findProyect = await Proyect.findById( id )
+		.catch( () => {
+			error = true;
+		} );
+
+	if ( !findProyect || error ) {
+		res.status( 404 ).json( { error: 'Proyect does not Exist' } );
+	} else {
+		const info = await sendEdit( Proyect, id, {
+			es, en, imgUrl, github, url,
+		} );
+		res.status( 200 ).json( info );
+	}
 };
 
-export const countProyect = async (req, res) => {
-    let count = req.params.num;
+export const getProyects = async ( _req, res ) => {
+	const proyects = await Proyect.find();
 
-    try {
-        count = parseInt(count);
-
-        if(count === 0) {
-            res.status(200).json([]);
-        } else {
-            const proyects = await Proyect.find().limit(count);
-            res.status(200).json(proyects);
-        }
-
-    } catch (error) {
-        res.status(505).json({"error": "It is not a permitted number "});
-    }
+	res.status( 200 ).json( proyects );
 };
 
-export const getProyect = async (req, res) => {
-    const id = req.params.id;
-    var error = false;
+export const countProyect = async ( req, res ) => {
+	let count = req.params.num;
 
-    const proyect = await Proyect.findById(id)
-        .catch(() => {
-            error = true;
-        }
-    );
+	try {
+		count = parseInt( count, 10 );
 
-    if(!proyect || error){
-        res.status(404).json({ "error": "Proyect does not Exist"});
-    } else {
-        res.status(200).json(proyect);
-    }
+		if ( count === 0 ) {
+			res.status( 200 ).json( [] );
+		} else {
+			const proyects = await Proyect.find().limit( count );
+			res.status( 200 ).json( proyects );
+		}
+	} catch ( error ) {
+		res.status( 505 ).json( { error: 'It is not a permitted number ' } );
+	}
 };
 
-export const deleteProyect = async (req, res) => {
-    const id = req.params.id;
-    var error = false;
+export const getProyect = async ( req, res ) => {
+	const { id } = req.params;
+	let error = false;
 
-    const deleteProyect = await Proyect.findByIdAndDelete(id)
-        .catch(() => {
-            error = true;
-        }
-    );
+	const proyect = await Proyect.findById( id )
+		.catch( () => {
+			error = true;
+		} );
 
-    if(!deleteProyect || error){
-        res.status(404).json({ "error": "Proyect does not Exist"});
-    } else {
-        res.status(200).json(deleteProyect);
-    }
+	if ( !proyect || error ) {
+		res.status( 404 ).json( { error: 'Proyect does not Exist' } );
+	} else {
+		res.status( 200 ).json( proyect );
+	}
+};
+
+export const deleteProyect = async ( req, res ) => {
+	const { id } = req.params;
+	let error = false;
+
+	const deleteProyect = await Proyect.findByIdAndDelete( id )
+		.catch( () => {
+			error = true;
+		} );
+
+	if ( !deleteProyect || error ) {
+		res.status( 404 ).json( { error: 'Proyect does not Exist' } );
+	} else {
+		res.status( 200 ).json( deleteProyect );
+	}
 };

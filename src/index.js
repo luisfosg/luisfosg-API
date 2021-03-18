@@ -1,6 +1,7 @@
-import app from "./app"
-import "./database"
+import app from './app';
 
-app.listen(app.get("port"), () => {
-    console.log(`\n Servidor Listo en el puerto: ${app.get("port")}`);
-});
+import './database';
+
+app.listen( app.get( 'port' ), () => {
+	console.log( `\n Servidor Listo en el puerto: ${app.get( 'port' )}` );
+} );

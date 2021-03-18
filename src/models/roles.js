@@ -1,9 +1,9 @@
 import { Schema, model } from 'mongoose';
 
-const roleSchema = new Schema({
-    name: String,
+const roleSchema = new Schema( {
+	name: String,
 }, {
-    versionKey: false
-});
+	versionKey: false,
+} );
 
-export default model("Role", roleSchema);
+export default model( 'Role', roleSchema );

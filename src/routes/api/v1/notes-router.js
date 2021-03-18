@@ -1,38 +1,38 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-import { authJwt } from "../../../middlewares";
+import { authJwt } from '../../../middlewares';
 import * as noteCtrl from '../../../controllers/note-controller';
 
 const router = Router();
 
 router.post(
-    "/",
-    [ authJwt.verifyToken, authJwt.isAdmin ],
-    noteCtrl.sendNote
+	'/',
+	[authJwt.verifyToken, authJwt.isAdmin],
+	noteCtrl.sendNote,
 );
 
 router.get(
-    "/",
-    [ authJwt.verifyToken, authJwt.isAdmin ],
-    noteCtrl.getNotes
+	'/',
+	[authJwt.verifyToken, authJwt.isAdmin],
+	noteCtrl.getNotes,
 );
 
 router.get(
-    "/:id",
-    [ authJwt.verifyToken, authJwt.isAdmin ],
-    noteCtrl.getNote
+	'/:id',
+	[authJwt.verifyToken, authJwt.isAdmin],
+	noteCtrl.getNote,
 );
 
 router.put(
-    "/:id",
-    [ authJwt.verifyToken, authJwt.isAdmin ],
-    noteCtrl.editNote
+	'/:id',
+	[authJwt.verifyToken, authJwt.isAdmin],
+	noteCtrl.editNote,
 );
 
 router.delete(
-    "/:id",
-    [ authJwt.verifyToken, authJwt.isAdmin ],
-    noteCtrl.deleteNote
+	'/:id',
+	[authJwt.verifyToken, authJwt.isAdmin],
+	noteCtrl.deleteNote,
 );
 
 export default router;
