@@ -1,6 +1,13 @@
 import mongoose from 'mongoose';
 
-const connection = process.env.MONGOCONNECTION;
+const { MONGOCONNECTION, MONGOCONNECTION_TEST, NODE_ENV } = process.env;
+
+let connection;
+if ( NODE_ENV === 'production' ) {
+	connection = MONGOCONNECTION;
+} else {
+	connection = MONGOCONNECTION_TEST;
+}
 
 mongoose.connect( connection, {
 	useUnifiedTopology: true,
@@ -8,5 +15,5 @@ mongoose.connect( connection, {
 	useFindAndModify: false,
 	useCreateIndex: true,
 } )
-	.then( ( _db ) => console.log( '\n Db is Connected \n' ) )
-	.catch( ( _err ) => console.log( '\n Db has an error' ) );
+	.then( ( _db ) => console.log( `\n Db is Connected in  ${ NODE_ENV }` ) )
+	.catch( ( _err ) => console.log( `\n Db has an error in ${ NODE_ENV }` ) );
