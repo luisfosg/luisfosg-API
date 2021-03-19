@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 
-mongoose.connect( 'mongodb://localhost/luisfosg-api', {
+const connection = process.env.MONGOCONNECTION;
+
+mongoose.connect( connection, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
 	useFindAndModify: false,
