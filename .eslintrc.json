@@ -1,7 +1,8 @@
 {
     "env": {
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "airbnb-base"
@@ -15,6 +16,7 @@
         "indent": ["error", "tab"],
         "import/no-cycle": "off",
         "import/prefer-default-export": "off",
+        "template-curly-spacing": "off",
         "linebreak-style": "off",
         "consistent-return": "off",
         "comma-dangle": "off",

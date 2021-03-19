@@ -4,7 +4,6 @@
 
 ## TODO:
 
-- Agregar Jest para Tests
 - Probar backend en el portafolio
 - Probar backend en Manage LuisFOsG
 - Cambiando todo a ingles xD

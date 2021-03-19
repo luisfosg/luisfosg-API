@@ -16,9 +16,9 @@ export const sendEmail = async ( from, msg, name, id ) => {
 		to: process.env.EMAILTO,
 		subject: name,
 		html: `
-            <h3>from: ${from}</h3>
+            <h3>from: ${ from }</h3>
             <small>Asunto: </small>
-            <p>${msg}</p>
+            <p>${ msg }</p>
         `,
 	};
 
