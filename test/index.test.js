@@ -3,13 +3,13 @@
 import { palindrome } from '../examples/palindrome';
 
 describe( 'palindrome', () => {
-	test( 'Recibiendo datos', () => {
+	test( 'get data', () => {
 		const result = palindrome( 'data' );
 
 		expect( result ).toBe( 'atad' );
 	} );
 
-	test( 'Indefenido', () => {
+	test( 'Undefined', () => {
 		const result = palindrome();
 
 		expect( result ).toBeUndefined();

@@ -1,6 +1,6 @@
 import Proyect from '../models/proyects';
 
-import { sendEdit } from '../libs/reutilizable';
+import { sendEdit } from '../libs/reusable';
 
 export const sendProyect = async ( req, res ) => {
 	const {

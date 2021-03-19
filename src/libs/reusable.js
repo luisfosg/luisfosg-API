@@ -30,7 +30,7 @@ const userRole = async ( Role ) => {
 	return [role._id];
 };
 
-export const asignandoRoles = async ( roles, Role ) => {
+export const assignRoles = async ( Role, roles ) => {
 	if ( roles ) {
 		const foundRoles = await Role.find( { name: { $in: roles } } );
 		if ( foundRoles.length === 0 ) return userRole( Role );

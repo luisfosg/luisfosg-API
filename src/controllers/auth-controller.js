@@ -2,7 +2,7 @@ import User from '../models/user';
 import Role from '../models/roles';
 
 import { jsonWTSend } from '../services/token';
-import { dbEdit, asignandoRoles } from '../libs/reutilizable';
+import { dbEdit, assignRoles } from '../libs/reusable';
 
 export const signIn = async ( req, res ) => {
 	const { name, password } = req.body;
@@ -38,7 +38,7 @@ export const userRegister = async ( req, res ) => {
 			password: await User.encriptarContrasenia( password ),
 		} );
 
-		newUser.roles = await asignandoRoles( roles, Role );
+		newUser.roles = await assignRoles( Role, roles );
 
 		const userSave = await newUser.save();
 
@@ -61,7 +61,7 @@ export const userEdit = async ( req, res ) => {
 
 	let error = false;
 
-	roles = await asignandoRoles( roles, Role );
+	roles = await assignRoles( Role, roles );
 
 	const findUserById = await User.findById( id )
 		.catch( () => {
