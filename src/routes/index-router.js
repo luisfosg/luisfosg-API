@@ -16,6 +16,6 @@ router.get( '/', ( _req, res ) => {
 	);
 } );
 
-router.use( '/api', homeRouter );
+router.use( '/api/v1', homeRouter );
 
 export default router;

@@ -9,11 +9,11 @@ import encryptRouter from '../api/v1/encrypt-router';
 
 const router = Router();
 
-router.use( '/v1/proyect', proyectRouter );
-router.use( '/v1/contact', contactRouter );
-router.use( '/v1/image', imageRouter );
-router.use( '/v1/note', noteRouter );
-router.use( '/v1/text', encryptRouter );
-router.use( '/v1', userRouter );
+router.use( '/proyect', proyectRouter );
+router.use( '/contact', contactRouter );
+router.use( '/image', imageRouter );
+router.use( '/note', noteRouter );
+router.use( '/text', encryptRouter );
+router.use( '/', userRouter );
 
 module.exports = router;
