@@ -9,7 +9,8 @@
     "dev": "cross-env NODE_ENV=development nodemon src/index.js --exec babel-node",
     "test": "cross-env NODE_ENV=test jest --verbose",
     "lint": "eslint . --fix",
-    "copy": "copyfiles --up 1 src/public/* src/public/images/* dist"
+    "copy": "copyfiles --up 1 src/public/* src/public/images/* dist",
+    "co": "sui-mono commit"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/LuisFOsG/LuisFOsG-API#readme",
   "dependencies": {
+    "@s-ui/mono": "2.19.0",
     "bcryptjs": "2.4.3",
     "core-js": "3.21.0",
     "cors": "2.8.5",
