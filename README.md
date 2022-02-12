@@ -1,17 +1,21 @@
-# API LuisFOsG
+<div align="center">
 
-## Variables de Entorno
+  # 👨🏻‍💻 API LuisFOsG
+
+</div>
+
+## Environment Variables
 
 ```js
-// Para lo del correo
+// For the Email
 EMAILFROM = ""
 PASSWORD_EMAIL = ""
 EMAILTO = ""
 SERVICE = ""
 
-// General de la API
+// General information about the API
 SECRET = ""
 ENCODE = ""
-MONGOCONNECTION = ""
-MONGOCONNECTION_TEST = ""
+MONGOCONNECTION = "mongodb://localhost/test"
+MONGOCONNECTION_TEST = "mongodb://localhost/test"
 ```
